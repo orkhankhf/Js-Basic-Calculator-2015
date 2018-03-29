@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+	body{
+		margin: 0px;
+	}
+	button{
+		border-color: #3C8C9E;
+		color: #9FD9DF;
+		background-color: black !important;
+	}
+	input[type=number]::-webkit-inner-spin-button, 
+	input[type=number]::-webkit-outer-spin-button { 
+    	-webkit-appearance: none;
+    	-moz-appearance: none;
+    	appearance: none;
+    	margin: 0; 
+	}
+	.main{
+		width: 200px;
+		background-color: black;
+		text-align: center;
+	}
+	.writebox{
+		width: 97%;
+		height: 30px;
+		background-color: black;
+		appearance: none;
+		border: 0px;
+		color: #3C8C9E;
+		font-size: 17px;
+		padding-left: 3px;
+		padding-right: 3px;
+	}
+	.nums{
+		width: 60%;
+		display: inline-block;
+	}
+	.specialbtnsdiv{
+		width: 40%;
+		display: inline-block;
+		float: right;
+	}
+	.num-buttons{
+		width: 33.3%;
+		height: 30px;
+		line-height: 30px;
+		text-align: center;
+		font-size: 16px;
+	}
+	.specialbtns{
+		width: 50%;
+		height: 30px;
+	}
+	.createdby{
+		color: #3C8C9E;
+		background-color: black;
+		font-size: 18px;
+	}
+	</style>
+</head>
+<body>
+<script type="text/javascript">
+/* MAIN DIV YARADILIR */
+	var maindiv = document.createElement("div");
+	maindiv.setAttribute("class","main");
+	document.body.appendChild(maindiv);
+
+/* YAZI DIVi YARADILIR */
+	var inputbox = document.createElement("input");
+	inputbox.setAttribute("class","writebox");
+	inputbox.setAttribute("type","text");
+	maindiv.appendChild(inputbox);
+
+/* NOMRE DUYMELERI DIVI YARADILIR */
+	var numsdiv = document.createElement("div");
+	numsdiv.setAttribute("class","nums");
+	maindiv.appendChild(numsdiv);
+
+/* EMELIYYAT DUYMELERI DIVI YARADILIR */
+	var specialbtnsdiv = document.createElement("div");
+	specialbtnsdiv.setAttribute("class","specialbtnsdiv");
+	maindiv.appendChild(specialbtnsdiv);
+
+/* NOMRE DUYMELERI YARADILIR */
+	for(i=0;i<12;i++){
+		var numbtn = document.createElement("button");
+		numbtn.setAttribute("class","num-buttons");
+		numsdiv.appendChild(numbtn);
+	}
+	var getNumButtons = document.getElementsByClassName("num-buttons");
+	getNumButtons[0].innerHTML = "7";
+	getNumButtons[1].innerHTML = "8";
+	getNumButtons[2].innerHTML = "9";
+	getNumButtons[3].innerHTML = "4";
+	getNumButtons[4].innerHTML = "5";
+	getNumButtons[5].innerHTML = "6";
+	getNumButtons[6].innerHTML = "1";
+	getNumButtons[7].innerHTML = "2";
+	getNumButtons[8].innerHTML = "3";
+	getNumButtons[9].innerHTML = "0";
+	getNumButtons[10].innerHTML = "00";
+	getNumButtons[11].innerHTML = ".";
+
+
+
+/* EMELIYYAT DUYMELERI YARADILIR */
+	for(i=0;i<6;i++){
+		var specialbtns = document.createElement("button");
+		specialbtns.setAttribute("class","num-buttons specialbtns");
+		specialbtnsdiv.appendChild(specialbtns);
+	}
+	var createdby = document.createElement("span");
+	createdby.setAttribute("class","createdby");
+	maindiv.appendChild(createdby);
+	createdby.innerHTML = "by Orhan Farajov";
+	var getSpecialBtns = document.getElementsByClassName("specialbtns");
+
+	getSpecialBtns[0].innerHTML = "/";
+	getSpecialBtns[1].innerHTML = "x";
+	getSpecialBtns[2].innerHTML = "-";
+	getSpecialBtns[3].innerHTML = "+";
+	getSpecialBtns[4].innerHTML = "=";
+	getSpecialBtns[5].innerHTML = "C";
+	getSpecialBtns[4].style.height="60px";
+	getSpecialBtns[5].style.height="60px";
+
+
+
+
+
+
+	getNumButtons[11].onclick=function(){
+		document.getElementsByClassName("writebox")[0].value+=".";
+	}
+	getNumButtons[10].onclick=function(){
+		document.getElementsByClassName("writebox")[0].value+="00";
+	}
+	getNumButtons[9].onclick=function(){
+		document.getElementsByClassName("writebox")[0].value+="0";
+	}
+	getNumButtons[6].onclick=function(){
+		document.getElementsByClassName("writebox")[0].value+="1";
+	}
+	getNumButtons[7].onclick=function(){
+		document.getElementsByClassName("writebox")[0].value+="2";
+	}
+	getNumButtons[8].onclick=function(){
+		document.getElementsByClassName("writebox")[0].value+="3";
+	}
+	getNumButtons[3].onclick=function(){
+		document.getElementsByClassName("writebox")[0].value+="4";
+	}
+	getNumButtons[4].onclick=function(){
+		document.getElementsByClassName("writebox")[0].value+="5";
+	}
+	getNumButtons[5].onclick=function(){
+		document.getElementsByClassName("writebox")[0].value+="6";
+	}
+	getNumButtons[0].onclick=function(){
+		document.getElementsByClassName("writebox")[0].value+="7";
+	}
+	getNumButtons[1].onclick=function(){
+		document.getElementsByClassName("writebox")[0].value+="8";
+	}
+	getNumButtons[2].onclick=function(){
+		document.getElementsByClassName("writebox")[0].value+="9";
+	}
+		
+				getSpecialBtns[0].onclick=function(){
+					document.getElementsByClassName("writebox")[0].value += "/";
+				}
+				getSpecialBtns[1].onclick=function(){
+					document.getElementsByClassName("writebox")[0].value += "*";
+				}
+				getSpecialBtns[2].onclick=function(){
+					document.getElementsByClassName("writebox")[0].value += "-";
+				}
+				getSpecialBtns[3].onclick=function(){
+					document.getElementsByClassName("writebox")[0].value += "+";
+				}
+				getSpecialBtns[5].onclick=function(){
+					document.getElementsByClassName("writebox")[0].value = "";
+				}
+
+				getSpecialBtns[4].onclick=function(){
+					document.getElementsByClassName("writebox")[0].value = eval(document.getElementsByClassName("writebox")[0].value);
+				}
+</script>
+
+
+</body>
+</html>
